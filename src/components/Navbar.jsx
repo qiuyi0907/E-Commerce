@@ -3,6 +3,8 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -27,7 +29,7 @@ const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   margin: 25px;
-  ${mobile({ display: "none"})}
+  ${mobile({ display: "none" })}
 `;
 
 const SearchContainer = styled.div`
@@ -36,7 +38,7 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
-  ${mobile({ marginLeft: ".5rem"})}
+  ${mobile({ marginLeft: ".5rem" })}
 `;
 
 const Input = styled.input`
@@ -60,7 +62,6 @@ const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
   ${mobile({ flex: 2, justifyContent: "center" })}
-
 `;
 
 const ManuItem = styled.div`
@@ -68,19 +69,20 @@ const ManuItem = styled.div`
   cursor: pointer;
   margin: 25px;
   white-space: nowrap;
-  ${mobile({ fontSize: "12px" , margin: '.5rem'})}
-
+  ${mobile({ fontSize: "12px", margin: ".5rem" })}
 `;
 
 const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
+  
   return (
     <Container>
       <Wrapper>
         <Left>
           <Language>EN</Language>
           <SearchContainer>
-            <Input placeholder="Search"/>
-            <Search style={{color: "gary", fontSize: 16}}/>
+            <Input placeholder="Search" />
+            <Search style={{ color: "gary", fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
@@ -89,11 +91,13 @@ const Navbar = () => {
         <Right>
           <ManuItem>REGISTER</ManuItem>
           <ManuItem>SIGN IN</ManuItem>
-          <ManuItem>
-            <Badge badgeContent={4} color="primary">
+          <Link to="/cart">
+            <ManuItem>
+              <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlined />
-            </Badge>
-          </ManuItem>
+              </Badge>
+            </ManuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
