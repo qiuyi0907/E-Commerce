@@ -10,6 +10,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { addProduct, deleteProduct } from "../redux/cartRedux";
+
 // import axios from "axios";
 
 const KEY = process.env.REACT_APP_STRIPE;
@@ -173,9 +177,11 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  // const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const navigate = useNavigate();
+  const [cart, setCart] = useState(useSelector((state) => state.cart));
+  // const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -188,7 +194,7 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: cart.total,
         });
-        console.log(res)
+        console.log(res);
         navigate("/success", { data: res.data });
       } catch (err) {
         console.log(err);
@@ -197,6 +203,44 @@ const Cart = () => {
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, navigate]);
 
+  const handleIncrement = (id) => {
+    setCart({
+      ...cart,
+      products: cart.products.map((product) => {
+        if (product._id === id) {
+          return { ...product, quantity: product.quantity + 1 };
+        } else {
+          return product;
+        }
+      }),
+    });
+  };
+
+  const handleDecrement = (id) => {
+    setCart({
+      ...cart,
+      products: cart.products.map((product) => {
+        if (product._id === id) {
+          return { ...product, quantity: product.quantity - (product.quantity > 1 ? 1: 0) };
+        } else {
+          return product;
+        }
+      }),
+    });
+  };
+
+  const handleClick = () => {
+    //update cart
+    // dispatch(
+    //   addProduct({ ...product, quantity, color, size })
+    // );
+  };
+
+  // const handleDelete = (id) => {
+  //   deleteProduct(id, dispatch);
+  // };
+ 
+
   return (
     <Container>
       <Navbar />
@@ -204,9 +248,11 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <Link to="/">
+            <TopButton>CONTINUE SHOPPING</TopButton>
+          </Link>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Shopping Bag({cart.quantity})</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
@@ -224,6 +270,7 @@ const Cart = () => {
                     <ProductId>
                       <b>ID:</b> {product._id}
                     </ProductId>
+                    <b>Color: </b>
                     <ProductColor color={product.color} />
                     <ProductSize>
                       <b>Size:</b> {product.size}
@@ -232,13 +279,20 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <Add />
+                    <Add
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {handleIncrement(product._id); handleClick()}}
+                    />
                     <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
+                    <Remove
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleDecrement(product._id)}
+                    />
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
                   </ProductPrice>
+                  {/* <Button onClick={() => handleDelete(product._id)}>Remove</Button> */}
                 </PriceDetail>
               </Product>
             ))}

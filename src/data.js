@@ -1,46 +1,74 @@
 export const sliderItems = [
   {
     id: 1,
-    img: "https://i.ibb.co/XsdmR2c/1.png",
-    title: "SUMMER SALE",
+    img: "/img/home1.jpg",
+    title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "f5fafd",
+    bg: "ffffff",
   },
   {
     id: 2,
-    img: "https://i.ibb.co/DG69bQ4/2.png",
-    title: "AUTUMN COLLECTION",
+    img: "/img/home2.jpg",
+    title: "SUMMER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fcf1ed",
+    bg: "ffffff",
   },
   {
     id: 3,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
-    title: "LOUNGEWEAR LOVE",
+    img: "/img/home3.jpg",
+    title: "WHAT'S TREND",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fbf0f4",
+    bg: "ffffff",
   },
+  {
+    id: 4,
+    img: "/img/home4.jpg",
+    title: "MEN COLLECTION",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "ffffff",
+  },
+  {
+    id: 5,
+    img: "/img/home5.jpg",
+    title: "12 BRANDS",
+    desc: "UP TO 55% OFF + EXTRA 10% OFF",
+    bg: "ffffff",
+  },
+  {
+    id: 6,
+    img: "/img/home6.jpg",
+    title: "BAGS, SHOES AND ACCESSOIRES FUNDING SHOP",
+    desc: "FOR 10 DAYS ONLY, TAKE AN EXTRA 10% OFF FUNDING ITEMS",
+    bg: "ffffff",
+  },
+  {
+    id: 7,
+    img: "/img/home7.jpg",
+    title: "100 MOST SEARCHED ITEMS",
+    desc: "+ ENJOY EXTRA 10% OFF SEARCHED STYLES",
+    bg: "ffffff",
+  }
 ];
 
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    img: "/img/category1.jpg",
     title: "SHIRT STYLE!",
-    category: "t-shirt",
+    category: "shirts",
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
-    category: "coat",
+    img: "/img/category2.jpg",
+    title: "DRESS COLLECTION",
+    category: "dresses",
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    title: "LIGHT JACKETS",
-    category: "women",
-  },
+    img: "/img/category3.jpg",
+    title: "BAG LOVER",
+    category: "bags",
+  }
 ];
 
 export const popularProducts = [

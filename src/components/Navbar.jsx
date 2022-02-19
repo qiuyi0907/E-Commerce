@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  height: 60px;
+  height: 8vh;
   ${mobile({ height: "50px" })}
 `;
 
@@ -86,7 +86,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>LAMA.</Logo>
+          <Logo>E.SHOP</Logo>
         </Center>
         <Right>
           <ManuItem>REGISTER</ManuItem>
@@ -94,7 +94,7 @@ const Navbar = () => {
           <Link to="/cart">
             <ManuItem>
               <Badge badgeContent={quantity} color="primary">
-                <ShoppingCartOutlined />
+                <ShoppingCartOutlined style={{color: "black"}}/>
               </Badge>
             </ManuItem>
           </Link>

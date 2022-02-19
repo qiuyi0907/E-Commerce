@@ -6,6 +6,8 @@ import { mobile } from "../responsive";
 const Container = styled.div`
   display: flex;
   ${mobile({ flexDirection: "column" })}
+  background-color: black;
+  color: white;
 `;
 
 const Left = styled.div`
@@ -41,7 +43,6 @@ const Center = styled.div`
   flex: 1;
   padding: 20px;
   ${mobile({ display: "none" })}
-
 `;
 
 const Title = styled.h3`
@@ -80,7 +81,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>LAMA.</Logo>
+        <Logo>E.SHOP</Logo>
         <Description>This is a description of this company...</Description>
         <SocialContainer>
           <SocialIcon color="3B5999">
