@@ -1,6 +1,27 @@
 # Getting Started with Create React App
 
+This is my first full-stack project made with MERN (MongoDB, Express, React, Node.js)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Skills I used
+### Front-End
+I use ReactJS as the front-end framework. 
+Indeed, React Router are used to switch between pages.
+And Redux are for reading pieces of state and dispatching actions to update the information of the whole project. For example, when I add the product that I want to buy, the information in shopping cart will be updated as well by Redux.
+Interesting part is that I use styled-component inside each react jsx file instead of css, because I realize style-componnet is more easier to manage projects with massive amount of pages.
+And I used MUI(Material-UI) for icons.
+
+### Back-End
+I used Express as the back-end framework.
+MongoDB is to managed the data.
+Dotenv is used to keep apis private.
+JSON Web Token is for authorization and authentication. Products are opened to all users. Each user can access their own shopping cart by authentication. And only authorized user（Administrator） can access all user's information and cart's information.
+To store information of products, users and orders, Firebase is used.
+
+### Deploy App
+I use Heroku and Netlify to deploy the app.
+
+
 
 ## Available Scripts
 
